@@ -1,24 +1,45 @@
 # catecismo-rea
 
-Leitor de obras (genérico) com primeiro milestone: **Catecismo da Igreja Católica**.
+Leitor **genérico de obras** (`Work`); primeiro conteúdo: **Catecismo da Igreja Católica (CIC)** em pt-BR.
 
-Investigação técnica com [REA](https://rea.tools/) sobre apps de referência (ex.: leitores Android) para orientar UX e arquitetura em **clean room**. O texto do Catecismo entra por fonte autorizada e estrutura própria — não por extração de APK.
+Desenvolvimento **Spec-Driven Development (SDD)** (mesmo padrão do case *novadrive-dashboard*): implemente na ordem das specs; **requirements / design / tasks** são a fonte da verdade.
 
-## Estrutura
+Investigação **REA** (clean room) sobre app Android de referência — UX de leitor, não corpus de texto.
 
-| Pasta | Uso |
-|-------|-----|
-| `docs/` | Charter, milestones, notas de investigação |
-| `content/catecismo/` | Obra estruturada (fonte legal) |
-| `evidence/` | Exports e notas REA |
-| `artifacts/` | APKs locais (não versionados) |
-| `src/` | Implementação do leitor |
+## Estrutura SDD
+
+```
+specs/01-modelo-obra/       # Schema Work + amostra CIC
+specs/02-rea-referencia/    # Sessões REA + notas
+specs/03-leitor-web/         # Protótipo Vite + React
+docs/CHARTER.md             # Visão e decisões (índice)
+docs/notas-artefato-android.md
+docs/notas-rea.md
+AGENTS.md                     # Regras para o agente Cursor
+prompts.md
+content/catecismo/
+evidence/                     # REA (local)
+artifacts/                    # APK (local, gitignored)
+src/                          # Implementação (spec 03)
+```
+
+Ordem: **01 → 02** (paralelo possível) **→ 03**. Detalhes em [`specs/README.md`](specs/README.md).
 
 ## Referência Play Store (REA)
 
-- App de referência UX: [Bíblia Ave Maria](https://play.google.com/store/apps/details?id=tepteev.ihar.biblia_ave_maria.AOUNVFLAKOECSYLY&hl=pt_BR)
-- `applicationId`: `tepteev.ihar.biblia_ave_maria.AOUNVFLAKOECSYLY`
+- [Bíblia Ave Maria](https://play.google.com/store/apps/details?id=tepteev.ihar.biblia_ave_maria.AOUNVFLAKOECSYLY&hl=pt_BR)
+- APK local v5.9.0: ver `docs/notas-artefato-android.md`
 
 ## Desenvolvimento
 
-Documentação de escopo: [`docs/CHARTER.md`](docs/CHARTER.md).
+_(Stack e comandos aparecem após implementação da spec 03.)_
+
+```bash
+# Exemplo futuro:
+npm install
+npm run dev
+```
+
+## Conteúdo
+
+Fonte CNBB 5ª edição: pendente — `content/catecismo/SOURCE.md`.
