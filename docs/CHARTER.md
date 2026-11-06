@@ -1,37 +1,34 @@
 # Charter — Obras / catecismo-rea
 
+_Índice executivo. Especificação completa: [`specs/`](../specs/README.md)._
+
 ## Visão
 
-Plataforma de **leitura genérica** (`Work` / `Book`): qualquer obra pode substituir outra. Primeiro milestone: **Catecismo da Igreja Católica (CIC)**.
+Plataforma **genérica de leitura**; milestone v1: **CIC** (pt-BR), protótipo web.
 
-## Princípios
+## Decisões (grill-me, 2026-11)
 
-- **Clean room:** implementação e código próprios; REA só para entender comportamento observável em apps de referência.
-- **Conteúdo:** texto do CIC a partir de **fonte autorizada** (edição/licença documentada em `content/catecismo/`). Não usar APK como corpus principal.
-- **REA:** perguntas estreitas, evidência (`evidence_id`), limitações e `unknowns` registrados.
+| Tema | Decisão |
+|------|---------|
+| Entrega v1 | Protótipo web navegável |
+| Stack | TypeScript + Vite + React |
+| Hierarquia CIC | Partes I–IV (+ Carta, Constituição, Sumário) → 2 Sessões → Capítulos → Artigos → § |
+| Conteúdo | CNBB 5ª desejada; licença **pendente** (`content/catecismo/SOURCE.md`) |
+| REA | Mecânica do app referência; schema CIC **próprio** |
+| Repo | Público; APK só local |
 
-## Fora de escopo (v1)
+## Specs
 
-- Clonar marca, assets ou textos proprietários de apps de terceiros.
-- Redistribuir APK ou dumps.
-- “Feature parity” total com app comercial antes do leitor mínimo do CIC.
+1. [01-modelo-obra](../specs/01-modelo-obra/requirements.md)
+2. [02-rea-referencia](../specs/02-rea-referencia/requirements.md)
+3. [03-leitor-web](../specs/03-leitor-web/requirements.md)
 
-## Referência REA (Android)
+## Fluxo de trabalho
 
-| Campo | Valor |
-|-------|--------|
-| Play Store | https://play.google.com/store/apps/details?id=tepteev.ihar.biblia_ave_maria.AOUNVFLAKOECSYLY&hl=pt_BR |
-| applicationId | `tepteev.ihar.biblia_ave_maria.AOUNVFLAKOECSYLY` |
-| Uso | UX: índice, busca, progresso, offline (a confirmar na investigação) |
+1. Implementar specs em ordem (ver `AGENTS.md`).
+2. REA: uma pergunta por sessão → `evidence/` + `docs/notas-rea.md`.
+3. Conteúdo completo só após `SOURCE.md` aprovado.
 
-## Milestones
+## Milestone legado
 
-- [Catecismo v1](milestones/catecismo-v1.md)
-
-## Decisões em aberto
-
-_(Preencher após sessão grill-me / grilling.)_
-
-- Stack alvo (web, mobile, ambos)?
-- Formato canônico da obra (parágrafo §, hierarquia)?
-- Fonte textual do CIC (edição PT)?
+Detalhe histórico do milestone v1: [`milestones/catecismo-v1.md`](milestones/catecismo-v1.md) (referencia as specs acima).
