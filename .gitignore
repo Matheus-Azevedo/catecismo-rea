@@ -1,0 +1,23 @@
+# REA / Android
+artifacts/*
+!artifacts/.gitkeep
+*.apk
+*.aab
+*.xapk
+*.apks
+
+# Evidence (opcional: versionar só relatórios sanitizados)
+evidence/*.json
+evidence/**/*.json
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Runtime / deps (quando houver)
+node_modules/
+dist/
+build/
+.env
+.env.*
